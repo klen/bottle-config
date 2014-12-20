@@ -28,11 +28,6 @@ Bottle Configuration -- Configure Bottle from files.
     :target: https://www.gratipay.com/klen/
     :alt: Donate
 
-.. _documentation:
-
-**Docs are available at https://bottle_config.readthedocs.org/. Pull requests
-with documentation enhancements and/or fixes are awesome and most welcome.**
-
 .. _contents:
 
 .. contents::
@@ -57,6 +52,40 @@ Installation
 
 Usage
 =====
+
+The application provide configuration like Django settings.
+
+`settings.py`: ::
+
+    DEBUG = True
+    ANOTHER_OPTION = 'VALUE'
+
+
+::
+
+    import bottle
+    from bottle_config import config
+
+    app = bottle.Bottle()
+    app.install(config)
+
+    # See app.config
+
+::
+
+    import bottle
+    from bottle_config import Config
+
+    app = bottle.Bottle()
+    app.install(Config('custom.default.module'))
+
+    # See app.config
+
+Use environment variable `BOTTLE_CONFIG` to set a configuration module
+
+::
+
+    BOTTLE_CONFIG=project.config.production python app.py
 
 .. _bugtracker:
 
