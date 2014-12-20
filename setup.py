@@ -47,6 +47,6 @@ setup(
         'Topic :: Utilities',
     ],
 
-    module='bottle_config.py',
+    py_modules=['bottle_config'],
     install_requires=install_requires,
 )
